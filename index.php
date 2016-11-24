@@ -58,6 +58,6 @@
 </div>
 </div>
 
-<script src="filedrag.js"></script>
+<script src="shopfy.js"></script>
 </body>
 </html>
