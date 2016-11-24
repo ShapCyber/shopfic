@@ -75,8 +75,6 @@
 		}
 
 	}
-
-
 	// upload JPEG files
 	function UploadFile(file) {		
 
@@ -103,7 +101,7 @@
 			};
 
 			// start upload
-			xhr.open("POST", GetElementById("upload").action, true);
+			xhr.open("POST", GetElementById("upload").action+"?"+GetElementById("upload").serializeArray(), true);
 			xhr.setRequestHeader("X_FILENAME", file.name);
 			xhr.send(file);
 
