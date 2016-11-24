@@ -31,7 +31,11 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($products_array));
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 $response = curl_exec ($curl);
 curl_close ($curl);
+ if($response):
 return ($response);
+ else:return "There An Error!";
+endif;
+ 
 }
 //===========
 //Close class				
@@ -39,7 +43,7 @@ return ($response);
 $NewsProDut=new PostToShopfy();
 //all these variable are just draft it might be the same with the form input
 // we correct does later
-if(isset($_REQUEST['ProductPost'])){
+if(isset($_REQUEST['ProductPost'])):
 $title=$_REQUEST['ProductTitle'];
 $bodyHtml=$_REQUEST['ProductDescription'];
 $vendor=$_REQUEST['ProductVendor'];
@@ -52,5 +56,5 @@ $ProductImges=$_REQUEST['fileselect'];
 //here we call the class to post to Shopfy
 $test=$NewsProDut->PostNewProduct($title,$bodyHtml,$vendor,$productType,$sku,$price,$size,$taxable,$ProductImges);
 echo ($test);
-}
+endif;
 ?>
